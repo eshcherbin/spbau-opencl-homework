@@ -94,7 +94,7 @@ int main()
         int block_size = 16;
         cl::NDRange global_range(block_size * ((n - 1) / block_size + 1), block_size * ((n - 1) / block_size + 1));
         cl::NDRange local_range(block_size, block_size);
-            queue.enqueueNDRangeKernel(kernel, cl::NullRange, global_range, local_range);
+        queue.enqueueNDRangeKernel(kernel, cl::NullRange, global_range, local_range);
 
         queue.enqueueReadBuffer(dev_c, CL_TRUE, 0, sizeof(int) * n * n, &c[0]);
 
